@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 gem "rails", "~> 7.0.4"
 
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 gem 'jquery-rails'
 
 gem "sprockets-rails"

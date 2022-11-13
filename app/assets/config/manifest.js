@@ -4,3 +4,8 @@
 //= link_tree ../../../vendor/javascript .js
 //= require jquery
 //= require bootstrap-sprockets
+//= require rails-ujs
+//= require bootstrap
+//= require_tree .
+//= require jquery-ui
+//= require jquery_ujs

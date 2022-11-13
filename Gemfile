@@ -9,6 +9,10 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+gem 'turbolinks', '~> 5.2', '>= 5.2.1'
+
 gem "sprockets-rails"
 
 gem "sqlite3", "~> 1.4"

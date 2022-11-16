@@ -41,6 +41,8 @@ gem "image_processing", "~> 1.2"
 
 gem 'simple_form', '~> 5.1'
 
+gem 'dragonfly', '~> 1.4'
+
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 group :development, :test do

@@ -5,7 +5,13 @@ ruby "3.1.2"
 
 gem "rails", "~> 7.0.4"
 
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 gem 'jquery-rails'
+
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+gem 'turbolinks', '~> 5.2', '>= 5.2.1'
 
 gem "sprockets-rails"
 
@@ -34,6 +40,8 @@ gem "sassc-rails"
 gem "image_processing", "~> 1.2"
 
 gem 'simple_form', '~> 5.1'
+
+gem 'dragonfly', '~> 1.4'
 
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 

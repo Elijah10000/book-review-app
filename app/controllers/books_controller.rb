@@ -1,60 +1,65 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-before_action :find_book, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, only: [:new, :edit]
+  before_action :find_book, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new edit]
 
-    def index
-        if params[:category].blank?
-        @books = Book.all.order('created_at DESC')
-        else
-            @category_id = Category.find_by(params[:category]).id
-            @books = Book.where(:category_id => @category_id).order('created_at DESC')
-        end
+  def index
+    if params[:category].blank?
+      @books = Book.all.order('created_at DESC')
+    else
+      @category_id = Category.find_by(params[:category]).id
+      @books = Book.where(category_id: @category_id).order('created_at DESC')
     end
+  end
 
-    def show 
+  def show; end
+
+  def new
+    @book = current_user.books.build
+    @categories = # options_for_select requires an array of arrays, which provide the text for the
+      # dropdown option (name) and for the value (id) it represents.
+      Category.all.map do |c|
+        [c.name, c.id]
+      end
+  end
+
+  def create
+    @book = current_user.books.build(book_params)
+    @book.category_id = params[:category_id]
+
+    if @book.save
+      redirect_to root_path
+    else
+      render 'new'
     end
+  end
 
-    def new 
-        @book = current_user.books.build
-        @categories = Category.all.map{ |c| [c.name, c.id] } #options_for_select requires an array of arrays, which provide the text for the dropdown option (name) and for the value (id) it represents.
+  def edit
+    @categories = Category.all.map { |c| [c.name, c.id] }
+  end
+
+  def update
+    @book.category_id = params[:category_id]
+    if @book.update(book_params)
+      redirect_to book_path(@book)
+    else
+      render 'edit'
     end
+  end
 
-    def create 
-        @book = current_user.books.build(book_params)
-        @book.category_id = params[:category_id]
+  def destroy
+    @book.destroy
+    redirect_to root_path
+  end
 
-        if @book.save
-            redirect_to root_path
-        else
-            render 'new'
-        end
-    end
+  private
 
-    def edit
-        @categories = Category.all.map{ |c| [c.name, c.id] }
-    end
-
-    def update
-        @book.category_id = params[:category_id]
-        if @book.update(book_params)
-            redirect_to book_path(@book)
-        else 
-            render 'edit'
-        end
-    end
-
-     def destroy
-         @book.destroy
-         redirect_to root_path
-     end
-
-    private 
-    def book_params
+  def book_params
     params.require(:book).permit(:title, :description, :author, :category_id)
-    end
+  end
 
-    def find_book 
-        @book = Book.find(params[:id])
-    end
-
+  def find_book
+    @book = Book.find(params[:id])
+  end
 end

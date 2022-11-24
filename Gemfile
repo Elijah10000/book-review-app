@@ -45,13 +45,15 @@ gem 'dragonfly', '~> 1.4'
 
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
+gem 'bundler', '~> 2.3', '>= 2.3.26'
+
 group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'pg'
   gem 'rubocop'
-  gem 'rubocop-rails', '~> 2.17', '>= 2.17.3'
+  gem 'rubocop-rails', '~> 2.17'
   gem 'ruby_audit'
 end
 

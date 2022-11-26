@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 before_action :find_book, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!, only: [:new, :edit]
 
     def index
         if params[:category].blank?
@@ -49,7 +50,7 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
 
     private 
     def book_params
-    params.require(:book).permit(:title, :description, :author, :category_id, :book_img, pictures: [])
+    params.require(:book).permit(:title, :description, :author, :category_id)
     end
 
     def find_book 

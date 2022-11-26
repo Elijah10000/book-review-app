@@ -22,7 +22,6 @@
 					<li><%= button_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 				<% else %>	
 					<li><%= link_to "Log In", new_user_session_path %></li>
-					<%= image_tag ("assets/images/book covers/gym.webp") %>
 				<% end %>
 			</ul>
 

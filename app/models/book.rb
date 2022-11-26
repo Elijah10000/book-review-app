@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
-  belongs_to :user
-  belongs_to :category
-  has_many :reviews
+    belongs_to :user
+    belongs_to :category
+    has_many :reviews
 end

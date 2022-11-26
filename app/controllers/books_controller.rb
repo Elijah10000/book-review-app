@@ -1,32 +1,29 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :find_book, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[new edit]
+before_action :find_book, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!, only: [:new, :edit]
 
-  def index
-    if params[:category].blank?
-      @books = Book.all.order('created_at DESC')
-    else
-      @category_id = Category.find_by(params[:category]).id
-      @books = Book.where(category_id: @category_id).order('created_at DESC')
+    def index
+        if params[:category].blank?
+        @books = Book.all.order('created_at DESC')
+        else
+            @category_id = Category.find_by(params[:category]).id
+            @books = Book.where(:category_id => @category_id).order('created_at DESC')
+        end
     end
   end
 
   def show; end
 
-  def new
-    @book = current_user.books.build
-    @categories = # options_for_select requires an array of arrays, which provide the text for the
-      # dropdown option (name) and for the value (id) it represents.
-      Category.all.map do |c|
-        [c.name, c.id]
-      end
-  end
+    def new 
+        @book = current_user.books.build
+        @categories = Category.all.map{ |c| [c.name, c.id] } #options_for_select requires an array of arrays, which provide the text for the dropdown option (name) and for the value (id) it represents.
+    end
 
-  def create
-    @book = current_user.books.build(book_params)
-    @book.category_id = params[:category_id]
+    def create 
+        @book = current_user.books.build(book_params)
+        @book.category_id = params[:category_id]
 
     if @book.save
       redirect_to root_path
@@ -35,16 +32,17 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit
-    @categories = Category.all.map { |c| [c.name, c.id] }
-  end
+    def edit
+        @categories = Category.all.map{ |c| [c.name, c.id] }
+    end
 
-  def update
-    @book.category_id = params[:category_id]
-    if @book.update(book_params)
-      redirect_to book_path(@book)
-    else
-      render 'edit'
+    def update
+        @book.category_id = params[:category_id]
+        if @book.update(book_params)
+            redirect_to book_path(@book)
+        else 
+            render 'edit'
+        end
     end
   end
 
@@ -53,7 +51,10 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
-  private
+    private 
+    def book_params
+    params.require(:book).permit(:title, :description, :author, :category_id)
+    end
 
   def book_params
     params.require(:book).permit(:title, :description, :author, :category_id)

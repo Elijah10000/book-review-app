@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
  @import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500); 
  @import "bootstrap-sprockets";
@@ -145,7 +146,7 @@
  /* Book styles */
  
  .book {
-     height: 50px;
+     height: 350px;
      width: 250px;
      margin-bottom: 40px;
      @include background-tile;

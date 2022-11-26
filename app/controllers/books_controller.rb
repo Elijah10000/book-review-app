@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
 before_action :find_book, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, only: [:new, :edit]
@@ -10,9 +12,9 @@ before_action :authenticate_user!, only: [:new, :edit]
             @books = Book.where(:category_id => @category_id).order('created_at DESC')
         end
     end
+  end
 
-    def show 
-    end
+  def show; end
 
     def new 
         @book = current_user.books.build
@@ -23,12 +25,12 @@ before_action :authenticate_user!, only: [:new, :edit]
         @book = current_user.books.build(book_params)
         @book.category_id = params[:category_id]
 
-        if @book.save
-            redirect_to root_path
-        else
-            render 'new'
-        end
+    if @book.save
+      redirect_to root_path
+    else
+      render 'new'
     end
+  end
 
     def edit
         @categories = Category.all.map{ |c| [c.name, c.id] }
@@ -42,19 +44,23 @@ before_action :authenticate_user!, only: [:new, :edit]
             render 'edit'
         end
     end
+  end
 
-     def destroy
-         @book.destroy
-         redirect_to root_path
-     end
+  def destroy
+    @book.destroy
+    redirect_to root_path
+  end
 
     private 
     def book_params
     params.require(:book).permit(:title, :description, :author, :category_id)
     end
 
-    def find_book 
-        @book = Book.find(params[:id])
-    end
+  def book_params
+    params.require(:book).permit(:title, :description, :author, :category_id)
+  end
 
+  def find_book
+    @book = Book.find(params[:id])
+  end
 end

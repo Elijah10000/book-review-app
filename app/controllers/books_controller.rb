@@ -44,7 +44,6 @@ before_action :authenticate_user!, only: [:new, :edit]
             render 'edit'
         end
     end
-  end
 
   def destroy
     @book.destroy
@@ -63,4 +62,3 @@ before_action :authenticate_user!, only: [:new, :edit]
   def find_book
     @book = Book.find(params[:id])
   end
-end

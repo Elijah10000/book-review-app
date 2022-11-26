@@ -49,8 +49,6 @@ gem 'dragonfly', '~> 1.4'
 
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
-gem 'bundler', '~> 2.3', '>= 2.3.26'
-
 group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'

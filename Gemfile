@@ -9,8 +9,6 @@ gem 'rails', '~> 7.0.4'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
-gem 'devise', '~> 4.8', '>= 4.8.1'
-
 gem 'jquery-rails'
 
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
@@ -18,8 +16,6 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'turbolinks', '~> 5.2', '>= 5.2.1'
 
 gem "sprockets-rails"
-
-gem 'sprockets-rails'
 
 gem "pg", "~> 1.1"
 
@@ -51,11 +47,11 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 gem 'postgresql', '~> 1.0'
 
+
 group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  # gem 'pg'
   gem 'rubocop'
   gem 'rubocop-rails', '~> 2.17'
   gem 'ruby_audit'

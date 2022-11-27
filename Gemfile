@@ -21,7 +21,7 @@ gem "sprockets-rails"
 
 gem 'sprockets-rails'
 
-gem 'sqlite3', '~> 1.4'
+gem "pg", "~> 1.1"
 
 gem 'puma', '~> 5.0'
 

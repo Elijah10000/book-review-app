@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 	before_action :find_book, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, only: [:new, :edit]
-
+	
 	def index
 		if params[:category].blank?
 			@books = Book.all.order("created_at DESC")
@@ -9,6 +9,11 @@ class BooksController < ApplicationController
 			@category_id = Category.find_by(name: params[:category]).id
 			@books = Book.where(:category_id => @category_id).order("created_at DESC")
 		end
+			response = HTTParty.get("https://api.publicapis.org/categories")
+			@response = JSON.parse(response.body)
+			@categories = @response["categories"]
+
+			@cat_facts = JSON.parse(HTTParty.get("https://cataas.com/api/tags").body)
 	end
 
 	def show
@@ -53,10 +58,11 @@ class BooksController < ApplicationController
 		redirect_to root_path
 	end
 
+
 	private
 
 		def book_params
-			params.require(:book).permit(:title, :description, :author, :category_id, :book_img)
+			params.require(:book).permit(:title, :description, :author, :category_id)
 		end
 
 		def find_book

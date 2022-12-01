@@ -45,8 +45,13 @@ gem 'dragonfly', '~> 1.4'
 
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
-gem 'postgresql', '~> 1.0'
+# gem 'postgresql', '~> 1.0'
 
+gem 'sqlite3', '~> 1.5', '>= 1.5.4'
+
+gem "httparty", "~> 0.20.0"
+
+gem 'activerecord-session_store', '~> 2.0'
 
 group :development, :test do
   gem 'brakeman'

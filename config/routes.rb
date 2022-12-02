@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'cookie/show_cookie'
   get 'cookie/delete_cookie'
   devise_for :users
-  resources :books do 
+  resources :books do
     resources :reviews
   end
   root 'books#index'

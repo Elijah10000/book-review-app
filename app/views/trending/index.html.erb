@@ -1,4 +1,6 @@
-<h1>Trending</h1>
+<div class="col-md-6 col-md-offset-3">
+
+<h1>What's Trending?</h1>
 <%= @title %>
 
 <% if @results != nil %>
@@ -7,14 +9,9 @@
   <li>
     <div>
         <h2><%= book["title"] %></h2>
-        <% book["author_name"].each do |author| %>
-            <p><%= author %></p>
         <% end %>
-
     </div>
   </li>
   <% end %>
   </ul>
-<% else %>
-  <p>No results yet</p>
-<% end %>
+</div>

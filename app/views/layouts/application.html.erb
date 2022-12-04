@@ -41,6 +41,8 @@
 
 				<% if user_signed_in? %>
 					<li><%= link_to "Add Book", new_book_path %></li>
+					<li><%= link_to "What's Trending?", trending_index_path(@book) %></li>
+
 				<% end %>
 				
 			</ul>
@@ -48,15 +50,6 @@
 		</div>
 
 	</nav>
-	
-
-	<%# <%= @response %>
-	<%#<hr />
-	<%#<%= @categories %>
-	<%#<% @categories.each do |cat| %>
-	<%#<p><%= cat %></p>
-	<%#<%end%> 
-
 
 	<p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>

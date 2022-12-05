@@ -42,6 +42,8 @@
 				<% if user_signed_in? %>
 					<li><%= link_to "Add Book", new_book_path %></li>
 					<li><%= link_to "What's Trending?", trending_index_path(@book) %></li>
+					<li><%= link_to "QOTD", quote_index_path(@book) %></li>
+
 
 				<% end %>
 				

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'cookie/show_cookie'
   get 'cookie/delete_cookie'
   get 'trending/index'
+  get 'quote/index'
   devise_for :users
   resources :books do
     resources :reviews

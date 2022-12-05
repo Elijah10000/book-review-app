@@ -4,7 +4,7 @@
 <%= @title %>
 
 <% if @results != nil %>
-  <ul>
+  <ol>
   <% @results["works"].first(10).each do |book| %>
   <li>
     <div>
@@ -13,5 +13,5 @@
     </div>
   </li>
   <% end %>
-  </ul>
+  </ol>
 </div>

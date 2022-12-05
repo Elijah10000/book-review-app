@@ -1,0 +1,15 @@
+<div class="col-md-6 col-md-offset-3">
+
+<h1>What's Trending?</h1>
+<% if @results != nil %>
+  <ol>
+  <% @results["works"].first(10).each do |book| %>
+  <li>
+    <div>
+        <h2><%= book["title"] %></h2>
+        <% end %>
+    </div>
+  </li>
+  </ol>
+</div>
+<%end%>

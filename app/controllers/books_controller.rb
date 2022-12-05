@@ -11,19 +11,14 @@ class BooksController < ApplicationController
       @category_id = Category.find_by(name: params[:category]).id
       @books = Book.where(category_id: @category_id).order('created_at DESC')
     end
-    response = HTTParty.get('https://api.publicapis.org/categories')
-    @response = JSON.parse(response.body)
-    @categories = @response['categories']
-
-    @cat_facts = JSON.parse(HTTParty.get('https://cataas.com/api/tags').body)
   end
 
   def show
     @average_review = if @book.reviews.blank?
-                        0
-                      else
-                        @book.reviews.average(:rating).round(2)
-                      end
+     0
+    else
+    @book.reviews.average(:rating).round(2)
+    end
   end
 
   def new

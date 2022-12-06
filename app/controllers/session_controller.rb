@@ -2,11 +2,14 @@
 
 class SessionController < ApplicationController
   before_action :set_breadcrumbs
-  def index; end
+  def index; 
+  end
 
-  def ping; end
+  def ping; 
+  end
 
-  def pong; end
+  def pong; 
+  end
 
   def request
     reset_session

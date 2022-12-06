@@ -1,9 +1,14 @@
-# frozen_string_literal: true
+# # frozen_string_literal: true
 
-require 'test_helper'
+# require 'test_helper'
 
-class ExampleJobTest < ActiveJob::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+# class ExampleJobTest < ActiveJob::TestCase
+#   setup do
+#     @quote = quotes(:one)
+#   end
+
+#   test 'should get index' do
+#     get quotes_url
+#     assert_response :success
+#   end
+# end

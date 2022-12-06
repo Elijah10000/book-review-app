@@ -17,7 +17,7 @@ gem 'turbolinks', '~> 5.2', '>= 5.2.1'
 
 gem 'sprockets-rails'
 
-# gem "pg", "~> 1.1"
+gem "pg", "~> 1.1"
 
 gem 'puma', '~> 5.0'
 
@@ -45,7 +45,7 @@ gem 'dragonfly', '~> 1.4'
 
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
-# gem 'postgresql', '~> 1.0'
+gem 'postgresql', '~> 1.0'
 
 gem 'sqlite3', '~> 1.5', '>= 1.5.4'
 
@@ -57,7 +57,6 @@ group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'pg'
   gem 'rubocop'
   gem 'rubocop-rails', '~> 2.17'
   gem 'ruby_audit'

@@ -272,9 +272,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.5.4)
-      mini_portile2 (~> 2.8.0)
-    sqlite3 (1.5.4-x64-mingw-ucrt)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -343,7 +340,6 @@ DEPENDENCIES
   selenium-webdriver
   simple_form (~> 5.1)
   sprockets-rails
-  sqlite3 (~> 1.5, >= 1.5.4)
   stimulus-rails
   turbo-rails
   turbolinks (~> 5.2, >= 5.2.1)

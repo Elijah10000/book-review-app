@@ -47,7 +47,7 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 gem 'postgresql', '~> 1.0'
 
-gem 'sqlite3', '~> 1.5', '>= 1.5.4'
+# gem 'sqlite3', '~> 1.5', '>= 1.5.4'
 
 gem 'httparty', '~> 0.20.0'
 

@@ -29,23 +29,8 @@ default: &default
   pool: 5
   timeout: 5000
 
-development:
-  <<: *default
-  database: db/development.postgresql
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
-
-test:
-  <<: *default
-  database: db/test.postgresql
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
-
 production:
   <<: *default
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
-  database: postgresql-polished-39103
+  database: ffziqpbvviggqu
+  username: d70tjugbsgsjj
+  password: e129110a73914aa4b352cb2f1f37ce71f7bd0f7343cf86791529d7a6d01510f0

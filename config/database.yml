@@ -31,6 +31,6 @@ default: &default
 
 production:
   <<: *default
-  database: ffziqpbvviggqu
-  username: d70tjugbsgsjj
+  database: d70tjugbsgsjj
+  username: ffziqpbvviggqu
   password: e129110a73914aa4b352cb2f1f37ce71f7bd0f7343cf86791529d7a6d01510f0

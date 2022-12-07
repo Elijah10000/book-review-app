@@ -1,4 +1,4 @@
-class quote < ActiveRecord::Base
+class Quote < ActiveRecord::Base
     
     validates :title, presence:true
     

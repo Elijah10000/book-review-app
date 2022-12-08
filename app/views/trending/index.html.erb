@@ -4,8 +4,8 @@
 <% if @results != nil %>
   <ol>
   <li>
+    <% @results["works"].first(10).each do |book| %>
     <div>
-      <% @results["works"].first(10).each do |book| %>
         <h2><%= book["title"] %></h2>
         <% end %>
     </div>

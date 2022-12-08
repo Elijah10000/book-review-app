@@ -3,9 +3,9 @@
 <h1>What's Trending?</h1>
 <% if @results != nil %>
   <ol>
-  <% @results["works"].first(10).each do |book| %>
   <li>
     <div>
+      <% @results["works"].first(10).each do |book| %>
         <h2><%= book["title"] %></h2>
         <% end %>
     </div>

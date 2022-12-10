@@ -1,24 +1,36 @@
-# # # frozen_string_literal: true
+# # frozen_string_literal: true
 
-#  require 'test_helper'
+ require 'test_helper'
 
-#  class ReviewsControllerTest < ActionDispatch::IntegrationTest
-#    setup do 
-#     @review = reviews(:one)
-#    end
+ class ReviewsControllerTest < ActionDispatch::IntegrationTest
+   setup do 
+    @review = reviews(:one)
+   end
+   
+    test 'if review is created' do
+        get new_review_url
+        assert_response :success
+    end
 
-#    test 'if new review is created' do
-#      get new_review_url
-#      assert_response :success
-#    end
-    
+    test 'if review is shown' do
+        get review_url(@review)
+        assert_response :success
+    end
 
-# end
+    test 'if review is edited' do
+        get edit_review_url(@review)
+        assert_response :success
+    end
 
+    test 'if review is updated' do
+        get edit_review_url(@review)
+        assert_response :success
+    end
 
-# # # Path: book-review-app\test\fixtures\reviews.yml
-# # # Compare this snippet from book-review-app\app\models\review.rb:
-# # # # frozen_string_literal: true
-
+    test 'if review is destroyed' do
+        get review_url(@review)
+        assert_response :success
+    end
+end
 
 

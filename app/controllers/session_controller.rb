@@ -19,11 +19,18 @@ class SessionController < ApplicationController
   private
 
   def set_breadcrumbs
-    @breadcrumbs = session[:breadcrumbs] || []
+    if session[:breadcrumbs]
+    @breadcrumbs = session[:breadcrumbs]
+    else
+      @breadcrumbs = Array.new
+    end
+
 
     @breadcrumbs.push(request.url)
 
-    @breadcrumbs.shift if @breadcrumbs.count > 4
+    if @breadcrumbs.count > 4
+    @breadcrumbs.shift
+    end 
 
     session[:breadcrumbs] = @breadcrumbs
   end

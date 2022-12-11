@@ -1,25 +1,25 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :find_book, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[new edit]
+  before_action :find_book, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def index
     if params[:category].blank?
       @books = Book.all.order('created_at DESC')
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @books = Book.where(category_id: @category_id).order('created_at DESC')
+			@books = Book.where(:category_id => @category_id).order("created_at DESC")
     end
   end
 
   def show
-    @average_review = if @book.reviews.blank?
-     0
-    else
-    @book.reviews.average(:rating).round(2)
-    end
-  end
+		if @book.reviews.blank?
+			@average_review = 0
+		else
+			@average_review = @book.reviews.average(:rating).round(2)
+		end
+	end
 
   def new
     @book = current_user.books.build

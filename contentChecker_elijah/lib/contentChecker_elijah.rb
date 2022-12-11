@@ -1,4 +1,4 @@
-# class contentCheckers
+# class contentCheckers_elijah
 #     def self.included(base)
 #         base.class_eval do
 #           extend ClassMethods
@@ -7,12 +7,12 @@
 #     end
   
 #     class ClassMethods
-#       def contentChecker!(*attr_names)
+#       def contentChecker_elijah!(*attr_names)
 #         option = attr_names.pop[:method] if attr_names.last.is_a?(Hash)
 #         attr_names.each { |attr_name| setup_callbacks_for(attr_name, option) }
 #       end
   
-#       def content_chekcer(*attr_names)
+#       def content_checker_elijah(*attr_names)
 #         option = attr_names.pop[:method] if attr_names.last.is_a?(Hash)
   
 #         attr_names.each do |attr_name|
@@ -26,7 +26,7 @@
   
 #       def setup_callbacks_for(attr_name, option)
 #         before_validation do |record|
-#           record[attr_name.to_sym] = ContentChecker::Base.clean(record[attr_name.to_sym], option)
+#           record[attr_name.to_sym] = ContentChecker_elijah::Base.clean(record[attr_name.to_sym], option)
 #         end
 #       end
 #     end
@@ -86,9 +86,9 @@
 #     end
 #   end
   
-#   ActiveRecord::Base.send(:include, ContentChecker) if defined?(ActiveRecord)
+#   ActiveRecord::Base.send(:include, ContentChecker_elijah) if defined?(ActiveRecord)
 
-def contentChecker?(string)
+def contentChecker_elijah?(string)
     if string == ["fuck", "ass", "shit"]
       puts "This is offensive language"
     else
